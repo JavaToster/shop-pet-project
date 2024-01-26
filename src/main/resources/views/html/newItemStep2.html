@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      select{
+  margin-left: 800px;
+  margin-top: 350px;
+  font-size: 21px;
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+input{
+  border: 2px solid black;
+  border-radius: 12px;
+  width: 70px;
+  height: 25px;
+  margin-left: 800px;
+}
+
+    </style>
+  </head>
+  <body>
+    <form th:method="POST" th:action="@{/shop/{id}/add-item-step-2?item-id={itemId}(id=${shop_id}, itemId=${item_id})}">
+      <select th:field="*{id}" th:object="${category}" >
+        <option th:each="category: ${categories}" th:value="${category.getId()}" th:text="${category.getCategoryName()}">Category 1</option>
+      </select>
+      <br>
+      <input type="submit" value="Далее">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      #item-image{
+    width: 500px;
+    height: 500px;
+}
+.image{
+  margin-left: 650px;
+  margin-top: 50px;
+}
+.description{
+  margin-left: 550px;
+  margin-top: -20px;
+}
+
+.another-item-fields{
+  margin-top: 50px;
+}
+
+.item-description{
+  margin-bottom: 100px;
+}
+
+#add-item-to-basket{
+  width: 150px;
+  background-color: white;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+#buy-item-now{
+  background-color: white;
+  border-radius: 12px;
+  width: 150px;
+}
+
+.date-of-add{
+  margin-left: 980px;
+  margin-top: -370px;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="image">
+        <img src="https://cdn1.ozone.ru/s3/multimedia-j/6695859295.jpg" alt="" id="item-image">
+      </div>
+      <div class="description">
+        <div class="item-name">
+          <h2 class="item-name" th:text="${item.getItemName()}"/>
+        </div>
+        <div class="another-item-fields">
+          <h2 class="item-description" th:text="${item.getItemDescription()}"/>
+          <h2 class="item-price" th:text="${item.getPrice()}">Price</h2>
+        </div>
+        <div class="action-with-item">
+          <form act ion="index.html" method="post">
+            <input id="add-item-to-basket" type="submit" name="" value="Добавить в корзину">
+          </form>
+          <form action="index.html" method="post">
+            <input id="buy-item-now" type="submit" name="" value="Купить сейчас">
+          </form>
+        </div>
+      </div>
+      <div class="date-of-add">
+        <p style="margin-bottom: 0px; font-weight: 800">Дата добавления:</p>
+        <p>26.01.2024</p>
+      </div>
+    </div>
+  </body>
+</html>

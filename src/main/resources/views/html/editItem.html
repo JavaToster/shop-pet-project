@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      #item-image{
+width: 500px;
+height: 500px;
+}
+.image{
+margin-left: 650px;
+margin-top: 50px;
+}
+.description{
+margin-left: 550px;
+margin-top: -20px;
+}
+
+.another-item-fields{
+margin-top: 50px;
+}
+
+.item-description{
+margin-bottom: 100px;
+}
+
+#add-item-to-basket{
+width: 150px;
+background-color: white;
+border-radius: 12px;
+margin-bottom: 10px;
+}
+
+#buy-item-now{
+background-color: white;
+border-radius: 12px;
+width: 150px;
+}
+
+#item-name{
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 400px;
+}
+
+#item-description{
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#item-price{
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+#edit{
+  margin-top: 20px;
+  background-color: white;
+  width: 120px;
+  height: 30px;
+  border-radius: 20px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="image">
+        <img src="https://cdn1.ozone.ru/s3/multimedia-j/6695859295.jpg" alt="" id="item-image">
+      </div>
+      <div class="description">
+        <form th:method="POST" th:action="@{/shop/item/{id}/edit (id=${id})}" th:object="${item}">
+          <input type="text" th:field="*{itemName}" th:value="${item.getItemName()}" id="item-name">
+          <br>
+          <textarea rows="6" cols="60" id="item-description" th:field="*{itemDescription}" th:text="${item.getItemDescription()}"></textarea>
+          <br>
+          <input type="text" th:field="*{price}" th:value="${item.getPrice()}" id="item-price">
+          <br>
+          <input type="submit" name="" value="Изменить" id="edit">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
