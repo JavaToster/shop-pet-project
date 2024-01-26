@@ -14,7 +14,7 @@ function sendFile() {
     };
 
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://192.168.1.4:8080/upload-item', true);
+    xhr.open('POST', '/upload-item', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onload = function() {
