@@ -94,4 +94,8 @@ public class ItemService {
         itemRepository.save(item);
     }
 
+    @Transactional(readOnly = true)
+    public List<Item> findByShopAndCategory(int shopId, int categoryId){
+        return itemRepository.findByShopAndCategory(shopRepository.findById(shopId).orElse(null), categoryRepository.findById(categoryId).orElse(null));
+    }
 }

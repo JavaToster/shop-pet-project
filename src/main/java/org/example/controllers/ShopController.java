@@ -2,9 +2,11 @@ package org.example.controllers;
 
 
 import org.example.models.Category;
+import org.example.models.Comment;
 import org.example.models.Item;
 import org.example.models.Shop;
 import org.example.services.CategoryService;
+import org.example.services.CommentService;
 import org.example.services.ItemService;
 import org.example.services.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +23,8 @@ public class ShopController {
 
     private ItemService itemService;
     private CategoryService categoryService;
-
     private ShopService shopService;
+    private CommentService commentService;
 
     @Autowired
     public void setItemService(ItemService itemService) {
@@ -37,6 +39,11 @@ public class ShopController {
     @Autowired
     public void setShopService(ShopService shopService) {
         this.shopService = shopService;
+    }
+
+    @Autowired
+    public void setCommentService(CommentService commentService) {
+        this.commentService = commentService;
     }
 
     @GetMapping()
@@ -137,6 +144,8 @@ public class ShopController {
     @GetMapping("/item/{id}")
     public String showItem(@PathVariable("id") int id, Model model) {
         model.addAttribute("item", itemService.findById(id));
+        model.addAttribute("comments", commentService.findByItem(id));
+        model.addAttribute("comment", new Comment());
 
         return "showItem";
     }
@@ -156,5 +165,15 @@ public class ShopController {
         itemService.edit(id, item);
 
         return "redirect:/shop/item/"+id;
+    }
+
+    @GetMapping("/{shopId}/category/{categoryId}")
+    public String showCategoryOfShop(@PathVariable("shopId") int shopId, @PathVariable("categoryId") int categoryId,
+                                     Model model){
+        model.addAttribute("items", itemService.findByShopAndCategory(shopId, categoryId));
+        model.addAttribute("item", new Item());
+        model.addAttribute("category", categoryService.findById(categoryId));
+
+        return "showCategory";
     }
 }

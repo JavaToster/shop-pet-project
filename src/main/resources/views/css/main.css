@@ -21,7 +21,7 @@
 
 .items{
   margin-left: 550px;
-  margin-top: -258px;
+  margin-top: -128px;
 }
 
 .item-img{
@@ -32,14 +32,12 @@
 
 .item-title{
   margin-left: 270px;
-  margin-bottom: 5px;
-  margin-top: -243px;
 }
 
 .item-description{
   margin-left: 270px;
   margin-top: -2px;
-  margin-bottom: 120px;
+  margin-bottom: 100px;
   font-size: 21px;
   word-wrap: break-word;;
 }
@@ -81,3 +79,7 @@
   height: 200px;
   margin-bottom: -70px;
 }
+
+    .item-information-block{
+      margin-top: -245px;
+    }

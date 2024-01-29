@@ -1,6 +1,7 @@
 package org.example.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Item")
@@ -27,6 +28,9 @@ public class Item {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "shop_id",referencedColumnName = "id")
     private Shop shop;
+
+    @OneToMany(mappedBy = "item")
+    private List<Comment> comments;
 
 //    @Column(name = "picture_img")
 //    private String pictureImg;
@@ -79,6 +83,14 @@ public class Item {
 
     public void setShop(Shop shop) {
         this.shop = shop;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
 //    public String getPictureImg() {

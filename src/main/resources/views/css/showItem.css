@@ -34,5 +34,18 @@
 
 .date-of-add{
   margin-left: 980px;
-  margin-top: -250px;
+  margin-top: -370px;
+}
+
+.comments{
+  width: 500px;
+  margin-top: 350px;
+  margin-left: 550px;
+}
+
+.comment{
+  border: 2px solid black;
+  border-radius: 10px;
+  word-wrap: break-word;
+  margin-bottom: 10px;
 }

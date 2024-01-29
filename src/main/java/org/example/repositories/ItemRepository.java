@@ -18,4 +18,6 @@ public interface ItemRepository extends JpaRepository<Item, Integer> {
 
     @Query(value = "select * from item where lower(item_name) like lower(:itemName)", nativeQuery = true)
     List<Item> findByItemNameLike(@Param("itemName") String itemName);
+
+    List<Item> findByShopAndCategory(Shop shop, Category category);
 }

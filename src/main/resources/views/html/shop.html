@@ -87,7 +87,7 @@
       <div class="categories-blocks">
         <div class="category-block" th:each="category: ${categories}">
           <img class="category-block-img" th:src="${category.getImageUrl()}" alt="Упс" style="margin-top: 105px;">
-          <h3 style="margin-left: 60px;" th:text="${category.getCategoryName()}"></h3>
+          <a style="margin-left: 60px; font-size: 21px; text-decoration: none; color: #000;" th:text="${category.getCategoryName()}" th:href="@{/shop/{shopId}/category/{categoryId} (shopId=${shop.getId()}, categoryId=${category.getId()})}"></a>
         </div>
       </div>
     </div>

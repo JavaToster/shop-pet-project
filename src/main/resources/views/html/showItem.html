@@ -3,47 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <style>
-      #item-image{
-    width: 500px;
-    height: 500px;
-}
-.image{
-  margin-left: 650px;
-  margin-top: 50px;
-}
-.description{
-  margin-left: 550px;
-  margin-top: -20px;
-}
-
-.another-item-fields{
-  margin-top: 50px;
-}
-
-.item-description{
-  margin-bottom: 100px;
-}
-
-#add-item-to-basket{
-  width: 150px;
-  background-color: white;
-  border-radius: 12px;
-  margin-bottom: 10px;
-}
-
-#buy-item-now{
-  background-color: white;
-  border-radius: 12px;
-  width: 150px;
-}
-
-.date-of-add{
-  margin-left: 980px;
-  margin-top: -370px;
-}
-
-    </style>
+    <link rel="stylesheet" th:href="@{/css/showItem.css}">
   </head>
   <body>
     <div class="main">
@@ -70,6 +30,12 @@
       <div class="date-of-add">
         <p style="margin-bottom: 0px; font-weight: 800">Дата добавления:</p>
         <p>26.01.2024</p>
+      </div>
+      <div class="comments">
+        <h2>Коментарии</h2>
+        <div class="comment" th:each="comment: ${comments}" th:text="${comment.getText()}">
+          iufjrfurhuhfuehuhuhuhuhuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+        </div>
       </div>
     </div>
   </body>
